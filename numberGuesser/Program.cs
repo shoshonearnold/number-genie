@@ -1,61 +1,31 @@
 ﻿using System;
-
-// Namespace
 namespace numberGuesser
-{   // Main Class
+{   
     class Program
-    { // Entry Point Method
+    { 
         static void Main(string[] args)
         {
-            // Set app vars
             GetAppInfo(); //run app info function
-
-
             GreetUser(); // ask for users name and greet
 
 
             while (true)
             {
-
-                // Init correct Number
-                //int correctNumber = 7;
-
-                // Create new random Object
                 Random random = new Random();
-
                 int correctNumber = random.Next(1, 10);
-
-
-                // Init Guess var
                 int guess = 0;
-
-                // Ask User for Number
                 Console.WriteLine("Guess a number between 1 and 10");
-
-                // While guess is not correct
                 while (guess != correctNumber)
                 {
-                    // Get users input
                     string input = Console.ReadLine();
-
-                    // MAke sure its a number
                     if (!int.TryParse(input, out guess))
                     {
-                        // Print error message
                         PrintColorMessage(ConsoleColor.Red, "Please use only numbers");
-                        // Keep Going
                         continue;
-
                     }
-
-
-                    // Cast to int and put into guess var
                     guess = Int32.Parse(input);
-
-                    //Match guess to correct number
                     if (guess != correctNumber)
                     {
-                        // show error messagew
                         PrintColorMessage(ConsoleColor.Red, "wrong number, please try again");
                     }
 
